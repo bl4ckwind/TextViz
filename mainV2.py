@@ -203,7 +203,7 @@ class TextVisualizer:
         return(x, y, typ)
 
     def showMainPlots(self, data_MCT, data_avg, data_lsi, data_contr):
-        output_file('standard.html')
+        output_file('output\\standard.html')
         p = plots.hbarMCT(data_MCT[0], data_MCT[1])
         q = plots.hbarLength(data_avg)
         donutList = []
@@ -220,11 +220,11 @@ class TextVisualizer:
         show(g)
 
     def showSimPlot(self, data_sims):
-        output_file('sim.html')
+        output_file('output\\sim.html')
         b = plots.barSim(data_sims)
         show(b)
 
     def showHistPlot(self, data_hist):
-        output_file('hist.html')
+        output_file('output\\hist.html')
         b = plots.lineHistory(data_hist)
         show(b)
