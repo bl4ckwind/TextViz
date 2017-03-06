@@ -1,5 +1,6 @@
-site_name: MkLorum
+site_name: TextViz
 pages:
   - Home: index.md
   - Example: example.md
+  - Documentation: Documentation.md
 theme: readthedocs
