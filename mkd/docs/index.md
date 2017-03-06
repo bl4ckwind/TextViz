@@ -15,5 +15,11 @@ TextViz bietet eine einfache Möglichkeit statistische und semantische Werte von
 ## Gallery
 
 ![Alternativer Text](/img/avg.png "Optionaler Titel")
+---
 ![Alternativer Text](/img/mct.png "Optionaler Titel")
+---
 ![Alternativer Text](/img/lsi.png "Optionaler Titel")
+---
+![Alternativer Text](/img/sim.png "Optionaler Titel")
+---
+![Alternativer Text](/img/hist.png "Optionaler Titel")

@@ -44,7 +44,7 @@ def barSim(data):
     bar = Bar(data, values='similarity', label='doc',
             agg='mean',
             title="Similarity between given document and corpus documents",
-            plot_width=500, plot_height=900, color="red", legend=None, bar_width=0.6)
+            plot_width=500, plot_height=900, color="SteelBlue", legend=None, bar_width=0.6)
     return bar
 
 def lineHistory(data):
