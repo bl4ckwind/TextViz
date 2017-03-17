@@ -147,8 +147,30 @@ Die Methode bereitet alle gewonnen Daten zu Darstellung vor und zeigt den Plot.
 
 # Other features
 
-### test
-### test2
+### similarityReq
+
+    similarityReq(self, document='compare\\')
+
+Die Methode führt einen Ähnlichkeitsvergleich im lsi-model zwischen den Korpusdokumenten und einem weiteren durch.
+
+**Parameter**
+
+- `document` bestimmt die Position des Textdokuments relativ zum Pfad der Klasse. Standard: `compare\\`
+
+**Returnvalue:** Tupel (List[KorpusdocNR], List[Ähnlichkeit in Prozent])
+
+### wordHistory
+
+    wordHistory(self, typ, granularity)
+
+Die Methode zeichnet den "zeitlichen" Verlauf eines bestimmten Wortes in allen Korpusdokumenten auf.
+
+**Parameter**
+
+- `typ` Das Wort, dessen Verlauf aufgezeigt werden soll
+- `granularity` bestimmt die Granularität mit der die Wortvorkommen zusammengefasst werden (z. B. 1000: Alle tausend Wörter werden zu einem Punkt zusammengefasst)
+
+**Returnvalue:** Tupel(List[x-Achsenabschnitt], List[y-Werte], Wort)
 
 # Plot
 
