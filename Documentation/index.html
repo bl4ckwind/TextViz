@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Documentation - TextViz</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Documentation";
+    var mkdocs_page_input_path = "Documentation.md";
+    var mkdocs_page_url = "/Documentation/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> TextViz</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Documentation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#main-module">Main module</a></li>
+                
+                    <li><a class="toctree-l4" href="#tokenizer">tokenizer</a></li>
+                
+                    <li><a class="toctree-l4" href="#sentenceizer">sentenceizer</a></li>
+                
+                    <li><a class="toctree-l4" href="#main">main</a></li>
+                
+                    <li><a class="toctree-l4" href="#createdictionary">createDictionary</a></li>
+                
+                    <li><a class="toctree-l4" href="#createbow">createBow</a></li>
+                
+                    <li><a class="toctree-l4" href="#createlsimodel">createLsiModel</a></li>
+                
+                    <li><a class="toctree-l4" href="#doccontrlsi">docContrLsi</a></li>
+                
+                    <li><a class="toctree-l4" href="#detavgsentlength">detAvgSentLength</a></li>
+                
+                    <li><a class="toctree-l4" href="#detavgwordlength">detAvgWordLength</a></li>
+                
+                    <li><a class="toctree-l4" href="#mostcommontypes">mostCommonTypes</a></li>
+                
+                    <li><a class="toctree-l4" href="#preplsidata">prepLsiData</a></li>
+                
+                    <li><a class="toctree-l4" href="#showmainplots">showMainPlots</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#other-features">Other features</a></li>
+                
+                    <li><a class="toctree-l4" href="#similarityreq">similarityReq</a></li>
+                
+                    <li><a class="toctree-l4" href="#wordhistory">wordHistory</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#plot">Plot</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">TextViz</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Documentation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="main-module">Main module</h1>
+<pre><code>class TextVisualizer
+    def __init__(self, path='docs\\'):
+        docs = self.docReader(path)
+        self.textTokens = self.tokenizer(docs)
+        self.sentences = self.sentenceizer(docs)
+</code></pre>
+<p>Die Hauptklasse <strong>TextVisualizer</strong> ruft bei Erstellung eines Objekts die Methoden <strong>docReder</strong>, <strong>tokenizer</strong> und <strong>sentenceizer</strong> auf, um die Verarbeitung der Korpusdokumente anzustoßen.
+<strong>Parameter</strong></p>
+<ul>
+<li><code>path</code> bestimmt die Position der Textdokumente relativ zum Pfad der Klasse. Standard: <code>docs\\</code></li>
+</ul>
+<h3 id="tokenizer">tokenizer</h3>
+<pre><code>tokenizer(self, documents)
+</code></pre>
+<p>Der bei Erstellung eines Objekts aufgerufene <strong>tokenizer</strong> öffnet jedes Dokument mit <em>utf-8</em> encoding und tokenisiert es.</p>
+<p><strong>Returnvalue:</strong> Geschachtelte Liste mit jedem tokenisierten Dokument</p>
+<h3 id="sentenceizer">sentenceizer</h3>
+<pre><code>sentenceizer(self, documents)
+</code></pre>
+<p>Der bei Erstellung eines Objekts aufgerufene <strong>sentenceizer</strong> öffnet jedes Dokument mit <em>utf-8</em> encoding und spaltet es an Satzgrenzen.</p>
+<p><strong>Returnvalue:</strong> Geschachtelte Liste mit allen Sätzen eines Dokuments</p>
+<h3 id="main">main</h3>
+<pre><code>main(self)
+</code></pre>
+<p>Die <strong>main</strong> Methode kann aufgerufen werden, um alle notwendigen Standardmethoden(<em>createDictionary, createBow, createLsiModel, prepLsiData, docContrLsi, detAvgSentLength, detAvgWordLength, mostCommonTypes, showMainPlots</em>) auszuführen und den plot anzustoßen. Resultat sind Grafiken mit den Features:</p>
+<ul>
+<li>Most common Types in corpus</li>
+<li>Avarage Token/Sentence Length in corpus</li>
+<li>LSI with keywords by topic and document contribution</li>
+</ul>
+<h3 id="createdictionary">createDictionary</h3>
+<pre><code>createDictionary(self, textTokens, excludeMostCommon=True, excludeTypes=[])
+</code></pre>
+<p>Die Methode erstellt mit Hilfe von <em>Gensim</em> ein Dictionary (mapping zwischen normalisierten Worten und IDs) für den Corpus. 
+<strong>Parameter</strong></p>
+<ul>
+<li><code>textTokens</code> ist der Rückgabewert der Methode <strong>tokenizer</strong></li>
+<li><code>excludeMostCommon</code> gibt an, ob einige der häufigsten Wörter der englischen Sprache von dem Prozess ausgeschlossen werden sollen, falls sie in den Dokumenten vorkommen. Standard: <code>True</code> </li>
+<li><code>excludeTypes</code> ist eine Liste, die individuell befüllt werden kann, um bestimmte Types vom Prozess auszuschließen. Standard: <code>Null</code></li>
+</ul>
+<p><strong>Returnvalue:</strong> Dictionary des Korpus</p>
+<h3 id="createbow">createBow</h3>
+<pre><code>createBow(self, dictionary, textTokens)
+</code></pre>
+<p>Die Methode erstellt mit Hilfe von <em>Gensim</em> ein bag-of-words (mapping zwischen Wort IDs und Frequenz) für den Corpus. 
+<strong>Parameter</strong></p>
+<ul>
+<li><code>textTokens</code> ist der Rückgabewert der Methode <strong>tokenizer</strong></li>
+<li><code>dictionary</code> ist der Rückgabewert der Methode <strong>createDictionary</strong></li>
+</ul>
+<p><strong>Returnvalue:</strong> Liste von Tuplen(wort_ID, wort_frequenz)</p>
+<h3 id="createlsimodel">createLsiModel</h3>
+<pre><code>createLsiModel(self, bow, dictionary, df=False)
+</code></pre>
+<p>Die Methode erstellt mit Hilfe von <em>Gensim</em> ein lsi-model für den Corpus. 
+<strong>Parameter</strong></p>
+<ul>
+<li><code>bow</code> ist der Rückgabewert der Methode <strong>createBow</strong></li>
+<li><code>dictionary</code> ist der Rückgabewert der Methode <strong>createDictionary</strong></li>
+<li><code>df</code> gibt an, ob das bow-model vorher in ein tfidf-model umgewandelt werden soll. Standard: <code>False</code></li>
+</ul>
+<p><strong>Returnvalue:</strong> Ein wrapped lsi-model des Korpus mit 3 topics</p>
+<h3 id="doccontrlsi">docContrLsi</h3>
+<pre><code>docContrLsi(self, lsi)
+</code></pre>
+<p>Die Methode berechnet den Anteil, den die Korpusdokumente zu den lsi-topics beitragen. 
+<strong>Parameter</strong></p>
+<ul>
+<li><code>lsi</code> ist ein Vektor erstellt mit dem lsimodel aus dem bow z. B. <code>lsimodel[bow]</code> </li>
+</ul>
+<p><strong>Returnvalue:</strong> Geschachtelte Liste mit den Werten geordnet nach topic</p>
+<h3 id="detavgsentlength">detAvgSentLength</h3>
+<pre><code>detAvgSentLength(self, sentences)
+</code></pre>
+<p>Die Methode ermittelt die durschnittliche Satzlänge im Korpus 
+<strong>Parameter</strong></p>
+<ul>
+<li><code>sentences</code> ist der Rückgabewert der Methode <strong>sentenceizer</strong> </li>
+</ul>
+<p><strong>Returnvalue:</strong> Tupel(Satzlänge in Zeichen, Satzlänge in Worten)</p>
+<h3 id="detavgwordlength">detAvgWordLength</h3>
+<pre><code>detAvgWordLength(self, textTokens)
+</code></pre>
+<p>Die Methode ermittelt die durschnittliche Wortlänge im Korpus 
+<strong>Parameter</strong></p>
+<ul>
+<li><code>textTokens</code> ist der Rückgabewert der Methode <strong>tokeneizer</strong> </li>
+</ul>
+<p><strong>Returnvalue:</strong> Wortlänge (Int)</p>
+<h3 id="mostcommontypes">mostCommonTypes</h3>
+<pre><code>mostCommonTypes(self, dictionary, bow, excludeTypes=[], n=30)
+</code></pre>
+<p>Die Methode ermittelt die häufigsten Wörter im Korpus 
+<strong>Parameter</strong></p>
+<ul>
+<li><code>dictionary</code> ist der Rückgabewert der Methode <strong>createDictionary</strong></li>
+<li><code>bow</code> ist der Rückgabewert der Methode <strong>createBow</strong></li>
+<li><code>excludeTypes</code> ist eine Liste, die individuell befüllt werden kann, um bestimmte Types vom Prozess auszuschließen. Standard: <code>Null</code></li>
+<li><code>n</code> gibt die Anzahl der zu ermittelnden Wörter an. Standard: <code>30</code></li>
+</ul>
+<p><strong>Returnvalue:</strong> Tupel(Liste[Wörter], Liste[Frequenz])</p>
+<h3 id="preplsidata">prepLsiData</h3>
+<pre><code>prepLsiData(self, lsimodel)
+</code></pre>
+<p>Die Methode bereitet die topics des lsi-models zu Darstellung vor
+<strong>Parameter</strong></p>
+<ul>
+<li><code>lsimodel</code> ist der Rückgabewert der Methode <strong>createLsiModel</strong></li>
+</ul>
+<p><strong>Returnvalue:</strong> Geschachtelte Liste [[topic1], [topic2], [topic3]]</p>
+<h3 id="showmainplots">showMainPlots</h3>
+<pre><code>showMainPlots(self, data_MCT, data_avg, data_lsi, data_contr)
+</code></pre>
+<p>Die Methode bereitet alle gewonnen Daten zu Darstellung vor und zeigt den Plot.
+<strong>Parameter</strong></p>
+<ul>
+<li><code>data_MCT</code> ist der Rückgabewert der Methode <strong>mostCommonTypes</strong></li>
+<li><code>data_avg</code> ist der Rückgabewert der Methoden  <strong>avgSentLength + avgWordLength</strong></li>
+<li>
+<ul>
+<li><code>data_lsi</code> ist der Rückgabewert der Methode <strong>prepLsiData</strong></li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>data_contr</code> ist der Rückgabewert der Methode <strong>docContrLsi</strong></li>
+</ul>
+</li>
+</ul>
+<h1 id="other-features">Other features</h1>
+<h3 id="similarityreq">similarityReq</h3>
+<pre><code>similarityReq(self, document='compare\\')
+</code></pre>
+<p>Die Methode führt einen Ähnlichkeitsvergleich im lsi-model zwischen den Korpusdokumenten und einem weiteren durch.</p>
+<p><strong>Parameter</strong></p>
+<ul>
+<li><code>document</code> bestimmt die Position des Textdokuments relativ zum Pfad der Klasse. Standard: <code>compare\\</code></li>
+</ul>
+<p><strong>Returnvalue:</strong> Tupel (List[KorpusdocNR], List[Ähnlichkeit in Prozent])</p>
+<h3 id="wordhistory">wordHistory</h3>
+<pre><code>wordHistory(self, typ, granularity)
+</code></pre>
+<p>Die Methode zeichnet den "zeitlichen" Verlauf eines bestimmten Wortes in allen Korpusdokumenten auf.</p>
+<p><strong>Parameter</strong></p>
+<ul>
+<li><code>typ</code> Das Wort, dessen Verlauf aufgezeigt werden soll</li>
+<li><code>granularity</code> bestimmt die Granularität mit der die Wortvorkommen zusammengefasst werden (z. B. 1000: Alle tausend Wörter werden zu einem Punkt zusammengefasst)</li>
+</ul>
+<p><strong>Returnvalue:</strong> Tupel(List[x-Achsenabschnitt], List[y-Werte], Wort)</p>
+<h1 id="plot">Plot</h1>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
