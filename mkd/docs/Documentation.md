@@ -151,30 +151,47 @@ Die Methode bereitet alle gewonnen Daten zu Darstellung vor und zeigt den Plot.
 
     similarityReq(self, document='compare\\')
 
-Die Methode führt einen Ähnlichkeitsvergleich im lsi-model zwischen den Korpusdokumenten und einem weiteren durch.
-
+Die Methode macht mit Hilfe von *Gensim* einen Ähnlichkeitsvergelich zwischen den Korpusdokumenten und einem zusätzlichen Dokument.
 **Parameter**
 
-- `document` bestimmt die Position des Textdokuments relativ zum Pfad der Klasse. Standard: `compare\\`
+- `document` gibt die Position des zusätzlichen Dokuments relativ zum Projektordner an. Standard: `compare\\`
 
-**Returnvalue:** Tupel (List[KorpusdocNR], List[Ähnlichkeit in Prozent])
+**Returnvalue:** Tupel(Liste[Korpusdokumentnummer], Liste[Ähnlichkeit in Prozent])
+
+### showSimPlot
+
+    showSimPlot(self, data_sims)
+
+Plottet die Daten eines similarity requests.
+**Parameter**
+
+- `data_sim` ist der Rückgabewert der Methode **similarityReq**
 
 ### wordHistory
 
     wordHistory(self, typ, granularity)
 
-Die Methode zeichnet den "zeitlichen" Verlauf eines bestimmten Wortes in allen Korpusdokumenten auf.
-
+Die Methode zeigt den "zeitlichen" Verlauf eines Wortes in den Korpusdokumenten auf. 
 **Parameter**
 
-- `typ` Das Wort, dessen Verlauf aufgezeigt werden soll
-- `granularity` bestimmt die Granularität mit der die Wortvorkommen zusammengefasst werden (z. B. 1000: Alle tausend Wörter werden zu einem Punkt zusammengefasst)
+- `typ` bestimmt das aufzuzeichnende Wort
+- `granularity` bestimmt wie viele Wörter eines Dokuments zu einem x-Achsenabschnitt zusammengefasst werden sollen
 
-**Returnvalue:** Tupel(List[x-Achsenabschnitt], List[y-Werte], Wort)
+**Returnvalue:** Tupel(Liste[Abschnitt], Liste[Wortvorkommen], Wort)
+
+### showHistPlot
+
+    showHistPlot(self, data_hist)
+
+Plottet die Daten einer word history.
+**Parameter**
+
+- `data_hist` ist der Rückgabewert der Methode **wordHistory**
+
 
 # Plot
 
-
+Das Plot-Modul arbeitet im Hintergund und allein mit *Bokeh*-Funktionen  und ist das Rückgrat des TextViz. Es werden Bar-, Pie- und Linecharts verwendet, um den jeweligen Aufgaben visuell gerecht zu werden. 
 
 
 
