@@ -147,12 +147,51 @@ Die Methode bereitet alle gewonnen Daten zu Darstellung vor und zeigt den Plot.
 
 # Other features
 
-### test
-### test2
+### similarityReq
+
+    similarityReq(self, document='compare\\')
+
+Die Methode macht mit Hilfe von *Gensim* einen Ähnlichkeitsvergelich zwischen den Korpusdokumenten und einem zusätzlichen Dokument.
+**Parameter**
+
+- `document` gibt die Position des zusätzlichen Dokuments relativ zum Projektordner an. Standard: `compare\\`
+
+**Returnvalue:** Tupel(Liste[Korpusdokumentnummer], Liste[Ähnlichkeit in Prozent])
+
+### showSimPlot
+
+    showSimPlot(self, data_sims)
+
+Plottet die Daten eines similarity requests.
+**Parameter**
+
+- `data_sim` ist der Rückgabewert der Methode **similarityReq**
+
+### wordHistory
+
+    wordHistory(self, typ, granularity)
+
+Die Methode zeigt den "zeitlichen" Verlauf eines Wortes in den Korpusdokumenten auf. 
+**Parameter**
+
+- `typ` bestimmt das aufzuzeichnende Wort
+- `granularity` bestimmt wie viele Wörter eines Dokuments zu einem x-Achsenabschnitt zusammengefasst werden sollen
+
+**Returnvalue:** Tupel(Liste[Abschnitt], Liste[Wortvorkommen], Wort)
+
+### showHistPlot
+
+    showHistPlot(self, data_hist)
+
+Plottet die Daten einer word history.
+**Parameter**
+
+- `data_hist` ist der Rückgabewert der Methode **wordHistory**
+
 
 # Plot
 
-
+Das Plot-Modul arbeitet im Hintergund und allein mit *Bokeh*-Funktionen  und ist das Rückgrat des TextViz. Es werden Bar-, Pie- und Linecharts verwendet, um den jeweligen Aufgaben visuell gerecht zu werden. 
 
 
 
