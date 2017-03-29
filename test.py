@@ -1,6 +1,6 @@
 import mainV2 as tv
 
-obj = tv.TextVisualizer('docs\\')
+obj = tv.TextVisualizer('corpus\\')
 obj.main()
 sims = obj.similarityReq('compare\\')
 hist = obj.wordHistory('old', 500)

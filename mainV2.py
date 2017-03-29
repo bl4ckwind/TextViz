@@ -19,7 +19,7 @@ class TextVisualizer:
     lsi = None
     """
 
-    def __init__(self, path='docs\\'):
+    def __init__(self, path='corpus\\'):
         docs = self.docReader(path)
         self.textTokens = self.tokenizer(docs)
         self.sentences = self.sentenceizer(docs)
