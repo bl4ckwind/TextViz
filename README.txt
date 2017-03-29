@@ -1,0 +1,1 @@
+Um alle vorhandenen Funktionen zu testen, einfach test.py ausführen.
