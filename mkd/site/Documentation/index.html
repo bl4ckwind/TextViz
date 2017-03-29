@@ -90,7 +90,11 @@
                 
                     <li><a class="toctree-l4" href="#similarityreq">similarityReq</a></li>
                 
+                    <li><a class="toctree-l4" href="#showsimplot">showSimPlot</a></li>
+                
                     <li><a class="toctree-l4" href="#wordhistory">wordHistory</a></li>
+                
+                    <li><a class="toctree-l4" href="#showhistplot">showHistPlot</a></li>
                 
             
                 <li class="toctree-l3"><a href="#plot">Plot</a></li>
@@ -267,23 +271,40 @@
 <h3 id="similarityreq">similarityReq</h3>
 <pre><code>similarityReq(self, document='compare\\')
 </code></pre>
-<p>Die Methode führt einen Ähnlichkeitsvergleich im lsi-model zwischen den Korpusdokumenten und einem weiteren durch.</p>
-<p><strong>Parameter</strong></p>
+<p>Die Methode macht mit Hilfe von <em>Gensim</em> einen Ähnlichkeitsvergelich zwischen den Korpusdokumenten und einem zusätzlichen Dokument.
+<strong>Parameter</strong></p>
 <ul>
-<li><code>document</code> bestimmt die Position des Textdokuments relativ zum Pfad der Klasse. Standard: <code>compare\\</code></li>
+<li><code>document</code> gibt die Position des zusätzlichen Dokuments relativ zum Projektordner an. Standard: <code>compare\\</code></li>
 </ul>
-<p><strong>Returnvalue:</strong> Tupel (List[KorpusdocNR], List[Ähnlichkeit in Prozent])</p>
+<p><strong>Returnvalue:</strong> Tupel(Liste[Korpusdokumentnummer], Liste[Ähnlichkeit in Prozent])</p>
+<h3 id="showsimplot">showSimPlot</h3>
+<pre><code>showSimPlot(self, data_sims)
+</code></pre>
+<p>Plottet die Daten eines similarity requests.
+<strong>Parameter</strong></p>
+<ul>
+<li><code>data_sim</code> ist der Rückgabewert der Methode <strong>similarityReq</strong></li>
+</ul>
 <h3 id="wordhistory">wordHistory</h3>
 <pre><code>wordHistory(self, typ, granularity)
 </code></pre>
-<p>Die Methode zeichnet den "zeitlichen" Verlauf eines bestimmten Wortes in allen Korpusdokumenten auf.</p>
-<p><strong>Parameter</strong></p>
+<p>Die Methode zeigt den "zeitlichen" Verlauf eines Wortes in den Korpusdokumenten auf. 
+<strong>Parameter</strong></p>
 <ul>
-<li><code>typ</code> Das Wort, dessen Verlauf aufgezeigt werden soll</li>
-<li><code>granularity</code> bestimmt die Granularität mit der die Wortvorkommen zusammengefasst werden (z. B. 1000: Alle tausend Wörter werden zu einem Punkt zusammengefasst)</li>
+<li><code>typ</code> bestimmt das aufzuzeichnende Wort</li>
+<li><code>granularity</code> bestimmt wie viele Wörter eines Dokuments zu einem x-Achsenabschnitt zusammengefasst werden sollen</li>
 </ul>
-<p><strong>Returnvalue:</strong> Tupel(List[x-Achsenabschnitt], List[y-Werte], Wort)</p>
+<p><strong>Returnvalue:</strong> Tupel(Liste[Abschnitt], Liste[Wortvorkommen], Wort)</p>
+<h3 id="showhistplot">showHistPlot</h3>
+<pre><code>showHistPlot(self, data_hist)
+</code></pre>
+<p>Plottet die Daten einer word history.
+<strong>Parameter</strong></p>
+<ul>
+<li><code>data_hist</code> ist der Rückgabewert der Methode <strong>wordHistory</strong></li>
+</ul>
 <h1 id="plot">Plot</h1>
+<p>Das Plot-Modul arbeitet im Hintergund und allein mit <em>Bokeh</em>-Funktionen  und ist das Rückgrat des TextViz. Es werden Bar-, Pie- und Linecharts verwendet, um den jeweligen Aufgaben visuell gerecht zu werden. </p>
               
             </div>
           </div>
