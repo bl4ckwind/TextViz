@@ -1,5 +1,6 @@
 site_name: TextViz
 pages:
   - Home: index.md
+  - Autor: Autor.md
   - Documentation: Documentation.md
 theme: readthedocs
