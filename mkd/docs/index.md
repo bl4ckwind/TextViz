@@ -4,7 +4,7 @@ Get the latest version of TextViz from Github [TextVizRep](https://github.com/bl
 
 TextViz bietet eine einfache Möglichkeit statistische und semantische Werte von (Korpus-)dokumenten visuell einzusehen. Dabei kommen die Pythonbibliotheken [NLTK](http://www.nltk.org/) und [Gensim](https://radimrehurek.com/gensim/) zur Analyse und [bokeh.io](http://bokeh.pydata.org/en/latest/index.html) zur Visualisierung zum Einsatz. 
 
-## Features
+## Featuress
 
 * Most common Types in corpus
 * Avarage Token/Sentence Length in corpus
@@ -14,6 +14,7 @@ TextViz bietet eine einfache Möglichkeit statistische und semantische Werte von
 
 ## Gallery
 
+<<<<<<< Updated upstream
 ![Alternativer Text](/images/avg.png "AvarageStatistics")
 ---
 ![Alternativer Text](/images/mct.png "MostCommonTypes")
@@ -23,3 +24,14 @@ TextViz bietet eine einfache Möglichkeit statistische und semantische Werte von
 ![Alternativer Text](/images/sim.png "Similarity")
 ---
 ![Alternativer Text](/images/hist.png "History")
+=======
+![Alternativer Text](/images/avg.png "Optionaler Titel")
+---
+![Alternativer Text](/images/mct.png "Optionaler Titel")
+---
+![Alternativer Text](/images/lsi.png "Optionaler Titel")
+---
+![Alternativer Text](/images/sim.png "Optionaler Titel")
+---
+![Alternativer Text](/images/hist.png "Optionaler Titel")
+>>>>>>> Stashed changes
