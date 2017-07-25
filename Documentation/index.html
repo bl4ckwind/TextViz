@@ -319,26 +319,39 @@ load("C:/Users/fisch/Google Drive/Studium/Kurse/SS17/R/Altklausur/klausur.rda")
 
 #1
 #Der Signifikanzwert (p-value) gibt die Gewissheit an mit der eine vorher aufgestellte NUllhypothese H_0 
-#angenommen werden kann. Der wert kann werte von 0-1 annehmen. Ein wert <0.05 bedeutet, dass die nullhypothese
+#abgelehnt oder angenommen werden kann. Der wert kann werte von 0-1 annehmen. Ein wert kleiner 0.05 bedeutet, dass die nullhypothese
 #stark widerlegt ist, ein wert >0.05 bedeutet, dass sich die nullhyp. bestätigt findet. p=.01 beudetet also
 #dass die h0 abgelehnt werden sollte.  Wert je nach alphalevel (100-confidence)
-#tail der prob-distr
+#tail der prob-distr 
+#without sign level: distribution of pvalue with true H_0 einheitlich between 0 and 1. 
+#but if h_0 is false pvalue will move to 0. only rough estimations for a guideline possible
+#0.01  can mean strong evidence against h_0
+
 
 #2
 bnc <- BNCwritten
 #1. nominal, ratio, ordinal
 #2. 
+ux <- unique(bnc$text_type)
+m <- match(bnc$text_type, ux)
+t <- tabulate(m)
+ux[which.max(t)]
+
 median(table(bnc$author_age))
 table(bnc$text_type)
 real <- bnc$author_age[bnc$author_age != "unknown"]
 median(table(real))
+
 mean(bnc$n_s)
-sd(bnc$n_s)
+var(bnc$n_s)
 table(bnc$text_type)
+
+
 barplot(table(bnc$text_type))
-hist(bnc$n_s)
+hist(bnc$n_s, breaks=seq(0, max(bnc$ns), 1000), xlim = range(breaks))
+hist(bnc$n_s, xlim=c(2,26215), breaks=25)
 barplot(table(bnc$author_age))
-table(bnc$audience_age)
+
 
 #3
 pr <- Priming
@@ -358,9 +371,9 @@ boxplot(eff ~ pr$experiment)
 
 unique(pr$relation)
 choose(16,2)
+#multiple comparisons multiply type I error (5%) = family-wise error rate [FWER]
 
 #4
-library(iterators)
 dat <- Dative
 s <- colSums(dat)
 NP <- dat[, c("NP", "PP")] #alle reihen, NP column
@@ -380,6 +393,7 @@ for (i in seq(1,6,1)){
 
 ct <- cbind(c(3,428), c(0,159))
 fisher.test(ct)
+
 </code>
               
             </div>
